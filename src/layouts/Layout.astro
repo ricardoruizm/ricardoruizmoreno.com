@@ -2,6 +2,7 @@
 import '../styles/globals.css';
 import Header from '../components/Header.astro';
 import Seo from '../components/Seo.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title?: string;
@@ -16,6 +17,8 @@ const formattedTitle = title ? `${title} | Ricardo Ruiz Moreno` : 'Ricardo Ruiz 
 <!doctype html>
 <html lang="es">
 	<head>
+        <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
         <title>{formattedTitle}</title>
 		<Seo 
             title={formattedTitle} 
@@ -23,8 +26,7 @@ const formattedTitle = title ? `${title} | Ricardo Ruiz Moreno` : 'Ricardo Ruiz 
             image={image} 
         />
 
-        {/* 👇 GOOGLE TAG MANAGER (HEAD) 👇 */}
-        {/* Reemplaza 'TU-GTM-ID' con tu ID real de Google Tag Manager */}
+        {/* GOOGLE TAG MANAGER (HEAD) */}
         {import.meta.env.PROD && (
           <Fragment set:html={`
             <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -35,9 +37,8 @@ const formattedTitle = title ? `${title} | Ricardo Ruiz Moreno` : 'Ricardo Ruiz 
             `} />
         )}
 	</head>
-	<body>
-        {/* 👇 GOOGLE TAG MANAGER (BODY) 👇 */}
-        {/* Reemplaza 'TU-GTM-ID' con tu ID real de Google Tag Manager */}
+	<body class="flex flex-col min-h-screen bg-gray-900">
+        {/* GOOGLE TAG MANAGER (BODY) */}
         {import.meta.env.PROD && (
           <Fragment set:html={`
             <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSSNPCF"
@@ -46,12 +47,12 @@ const formattedTitle = title ? `${title} | Ricardo Ruiz Moreno` : 'Ricardo Ruiz 
         )}
 
 		<Header />
-		<main>
+		<main class="flex-grow">
 			<slot />
 		</main>
-
-    <script>
-      import '../scripts/animateOnScroll.js';
-    </script>
+        <Footer />
+        <script>
+            import '../scripts/animateOnScroll.js';
+        </script>
 	</body>
 </html>

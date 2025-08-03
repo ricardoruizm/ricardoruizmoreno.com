@@ -1,100 +1,331 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const professionalExperience = [
-  {
-    role: "Director de Proyectos de Tecnología",
-    company: "Nombre de la Empresa, Ciudad de México",
-    period: "Enero 2020 - Presente",
-    description: "Aquí va una descripción concisa de tus logros y responsabilidades clave en este puesto. Por ejemplo: Lideré un equipo de 15 personas en el desarrollo y lanzamiento de 3 productos digitales, resultando en un incremento del 40% en la retención de usuarios."
-  },
-  {
-    role: "Puesto Anterior",
-    company: "Otra Empresa, Ciudad de México",
-    period: "Junio 2017 - Diciembre 2019",
-    description: "Descripción de tus logros y responsabilidades en el puesto anterior. Enfócate en resultados cuantificables."
-  }
+// --- SECCIÓN DE DATOS COMPLETOS ---
+
+const about = {
+  imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/20220808_114144.gif",
+  description: "Manager multitarea conocido por crear una cultura laboral positiva y equipos de alto rendimiento. Experiencia demostrada en proyectos de comercio electrónico, diseño tecnológico y arquitectura, marketing digital y farmacéutica, incluida la promoción, las estrategias de precios y el posicionamiento en el mercado en línea. Líder colaborativo con dedicación a asociarse con compañeros de trabajo para promover una cultura laboral comprometida y empoderadora. Fortalezas orientadas en la construcción y el mantenimiento de relaciones corporativas con una amplia gama de stakeholders en entornos dinámicos y acelerados.",
+  details: [
+    { label: "E-mail", value: "me@ricardoruizmoreno.com", href: "mailto:me@ricardoruizmoreno.com" },
+    { label: "Residencia", value: "México" },
+    { label: "Abierto a ofertas", value: "No" },
+    { label: "Móvil", value: "+52 55 7402 5390", href: "tel:+525574025390" },
+  ],
+  downloads: [
+    { text: "Download CV ENGLISH", href: "https://share.hsforms.com/1bNzowVogRamQnpbqYKkEgAej2c6" },
+    { text: "Descargar CV ESPAÑOL", href: "https://share.hsforms.com/1bNzowVogRamQnpbqYKkEgAej2c6" },
+  ]
+};
+
+const languages = [
+  { lang: "Español Nativo", level: 100 },
+  { lang: "Inglés B2 - Negocios", level: 70 },
+];
+
+const experience = [
+    {
+        date: "Abril 2023 - Presente",
+        title: "Country Manager Americas",
+        company: "Divain Parfums",
+        description: "Perfumes de equivalencia de alta calidad con presencia en más de 10 países 100% online.",
+    },
+    {
+        date: "Abril 2019 - Presente",
+        title: "Lulo Valley, Venture Builder (proyecto académico)",
+        company: "Lulo Valley",
+        imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2023/04/Default-Logo-minlulo.png",
+        description: 'Asesorías independientes de pequeños y medianos negocios y personas que desean incursionar en el mundo del marketing y producto digital. Más info: <a href="https://lulovalley.com" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">lulovalley.com</a>.',
+    },
+    {
+        date: "Jun 2020 - Feb 2023 CDMX, México",
+        title: "Director de Innovación I+D+i",
+        company: "Farmalisto Latam",
+        imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2023/04/frm-lo-smll-e1681305605198.png",
+        description: "Me he desempeñado como líder de innovación para proyectos de tecnología de cara al desarrollo de nuevos canales de venta online B2B y B2C para las farmacéuticas más importantes del mundo como lo son: Bayer, Novartis, Abbott. También el desarrollo de las tiendas oficiales en Mercado Libre para México, Colombia, Perú y Chile.",
+    },
+    {
+        date: "Dic 2018 - Jun 2020 CDMX, México",
+        title: "Director Regional de Producto Digital",
+        company: "Farmalisto Latam",
+        imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2023/04/frm-lo-smll-e1681305605198.png",
+        description: "Encargado de diseño y desarrollo de productos digitales de cara a las necesidades de pacientes e industria farmacéutica en la región.",
+    },
+    {
+        date: "Mayo 2016 - Julio 2020, CDMX, México",
+        title: "Director Marketing Online - Digital",
+        company: "Farmalisto MX",
+        imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2023/04/frm-lo-smll-e1681305605198.png",
+        description: "Growth and Chief Digital Marketing Officer, responsable de la estrategia y ejecución de Marketing, Comunicación, PR, Social Media, Contenido, Adquisición, Fidelización y Retención para Farmalisto México. (B2C - B2B). Labores de negociación con medios, agencias y centrales de medios. Planificación, ejecución y optimización de presupuestos para adquisición de nuevos clientes. Desarrollo de nuevos canales de venta y generación de demanda e integración en el medio online.",
+    },
+    {
+        date: "Junio 2015 - Mayo 2016, Bogotá Colombia",
+        title: "Especialista en marketing digital",
+        company: "Farmalisto CO",
+        imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2023/04/frm-lo-smll-e1681305605198.png",
+        description: "Investigación de Mercado, SEO, Adwords, Facebook, Twitter, Linkedin, Email marketing, Sugar CRM (básico), Google Analytics, Webmaster Tools, Adserver, HTML (básico), KPIs.",
+    },
+    {
+        date: "Oct 2013 - jun 2015 Bogotá, Colombia",
+        title: "Analista Seo",
+        company: "Farmalisto CO",
+        imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2023/04/frm-lo-smll-e1681305605198.png",
+        description: "SEO research, strategy and implementation. Link building strategies and execution. Web master tools. Keyword analysis. SEO Copywriting. Content Writer.",
+    },
+    {
+        date: "Enero 2015 - Mayo 2016 Bogotá, Colombia",
+        title: "Especialista Email Marketing",
+        company: "esanum",
+        imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2023/04/json-ld-esanum-logo-e1681305918819-200x120.jpeg",
+        description: 'Desarrollo de campañas de email marketing. Más info: <a href="https://esanum.com" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">esanum.com</a>.',
+    },
+    {
+        date: "Septiembre 2011 - septiembre 2014",
+        title: "Web Designer / CEO / Media Management",
+        company: "LINEBOT (Own entepreneurship)",
+        description: "• Online Radio Broadcaster • Digital marketing development • Online Radio • News site • SEO • Content Admin director",
+    },
+    {
+        date: "Febrero 2013 - junio 2013 Bogotà, Colombia",
+        title: "Web Designer / SEO / Media Management",
+        company: "JUTIESTUDIO SAS (Own Entepreneurship)",
+        description: "• Digital marketing development strategies • SEO • Content admin director • Web designer",
+    }
 ];
 
 const education = [
     {
-        degree: "Máster en Diseño y Gestión de Proyectos Tecnológicos",
-        institution: "Nombre de la Universidad",
-        period: "2016 - 2017"
+        date: "Marzo 2021 - Nov 2022",
+        institution: "UNIR México | Universidad Internacional de La Rioja en México",
+        degree: "Maestría en Diseño y Gestión de Proyectos Tecnológicos. Ingeniería informática.",
     },
     {
-        degree: "Licenciatura en Mercadotecnia",
-        institution: "Nombre de la Universidad",
-        period: "2010 - 2015"
+        date: "Mayo 2022",
+        institution: "UNIR México | Universidad Internacional de La Rioja en México",
+        degree: "Diplomado en Dirección de Proyectos",
+        link: "https://verifirma.unir.net/MX/CSV/dbdaf547-45cb-4a51-ae2a-32dc5bc35207",
+    },
+    {
+        date: "Octubre 2021",
+        institution: "UNIR México | Universidad Internacional de La Rioja en México",
+        degree: "Diplomado en Innovación Tecnológica",
+        link: "https://verifirma.unir.net/MX/CSV/fb69187c-4d12-4250-a05b-e2cc53fbd521",
+    },
+    {
+        date: "2014, 2020",
+        institution: "Universidad EAN, Colombia",
+        degree: "Mercadólogo. Marketing/Gestión de marketing.",
+    },
+    {
+        date: "2005 - 2011",
+        institution: "CIDE - Corporación Internacional para el Desarrollo Educativo",
+        degree: "Diseño gráfico y publicitario, Editorial, audiovisual, web.",
+    },
+    {
+        date: "2008 - 2009",
+        institution: "Pixel Studios, Colombia",
+        degree: "Infografía en animación 3d y Effects, Animación, tecnología interactiva, gráficos en vídeo y efectos especiales.",
+    },
+    {
+        date: "Febrero 2021",
+        institution: "School Of Change",
+        degree: "Creative Leadership Journey",
+        link: "http://bit.ly/ricardoruizmoreno",
     }
 ];
 
 const skills = [
-    "Gestión de Proyectos (Agile, Scrum)", "Estrategia de Producto Digital", "Análisis de Datos",
-    "Marketing Digital (SEO, SEM)", "E-commerce", "UI/UX", "Google Analytics", "Sanity.io", "Astro", "Tailwind CSS"
+  { title: "CMS, Ecommerce, Marketplaces y Editores wysiwyg", items: [
+      { name: "Prestashop", level: 95 }, { name: "Wordpress", level: 80 }, { name: "Unbounce", level: 90 }, { name: "Notion.so", level: 60 }, { name: "Mercado Libre - Seller", level: 90 }, { name: "Amazon MX - Seller", level: 90 }, { name: "Claroshop - Seller", level: 90 }, { name: "Yuju - Integrador", level: 90 }
+  ]},
+  { title: "Conocimientos en", items: [
+      { name: "Marketing Digital Farmacéutico", level: 90 }, { name: "Hosting de websites", level: 90 }, { name: "Dirección de proyectos de tecnología", level: 95 }, { name: "Google Analytics", level: 85 }, { name: "Google Search Console", level: 85 }, { name: "Publicidad Digital (redes de Google, Meta)", level: 85 }, { name: "Redes de afliación", level: 85 }, { name: "Search engine marketing (SEO)", level: 85 }, { name: "Nosto", level: 90 }, { name: "Oct8ne", level: 90 }, { name: "Doofinder", level: 90 }, { name: "Hotjat", level: 90 }, { name: "Livechatinc", level: 90 }, { name: "Zapier", level: 90 }, { name: "LucidChart", level: 90 }, { name: "Gannter", level: 90 }, { name: "Trello", level: 90 }, { name: "Wrike", level: 90 }, { name: "Atlassian Jira", level: 90 }, { name: "Locución", level: 90 }, { name: "Semrush", level: 90 }, { name: "Hubspot Sales", level: 90 }, { name: "MailChimp", level: 90 }, { name: "MailUp", level: 90 }, { name: "Infobip", level: 90 }, { name: "Twilio", level: 90 }, { name: "Mautic", level: 90 }, { name: "Godaddy", level: 90 }, { name: "Siteground", level: 90 }, { name: "Cloudflare", level: 90 }, { name: "Data Studio", level: 90 }, { name: "Excel", level: 90 }, { name: "Word", level: 90 }, { name: "Libre Office", level: 90 }
+  ]}
+];
+
+const recommendations = [
+    { imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/david.jpeg", name: "David Rodriguez Urueña", title: "CEO Web Impacto España", text: "Llevo trabajando con Ricardo los últimos dos años, en este tiempo ha demostrado un alto conocimiento del ecosistema digital, tanto a nivel de marketing como de negocio. Es un profesional que cumple los objetivos que se marca y que siempre busca la mejor solución para el proyecto. Sin duda, lo recomiendo y espero que sigamos colaborando en el futuro." },
+    { imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/Eiver-Ivan-Gomez.png", name: "Eiver Iván Gómez", title: "Gerente de Marketing", text: "Ricardo es un gran profesional, innovador y un excelente ser humano, siempre dispuesto a ayudar a los demás y con un gran conocimiento en Marketing Digital." },
+    { imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/manu.jpeg", name: "Manuel Díaz Rendón", title: "Director Comercial", text: "Alto nivel de conocimiento en marketing digital, proactivo y siempre atento a los resultados. Ricardo es una pieza clave en cualquier equipo." },
+    { imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/inge.jpeg", name: "César Rodríguez", title: "Gerente de Fulfillment", text: "Excelente persona y gran profesional, con un alto sentido de la responsabilidad y compromiso." },
+    { imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/sebas.jpeg", name: "Sebastian Mora", title: "Gerente Corporativo Business Intelligence", text: "Ricardo es un gran profesional, pro activo y siempre dispuesto a enseñar. Tiene un gran conocimiento en el área de marketing digital y producto." },
+    { imageUrl: "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/Jeroen.jpeg", name: "Jeroen Hoevenberg", title: "Country Manager", text: "Ricardo es excelente en lo que hace, totalmente orientado a resultados." }
 ];
 ---
 
 <Layout title="CV - Ricardo Ruiz Moreno">
   <div class="container mx-auto px-6 py-24 pt-40">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16">
-        <div>
-          <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-teal-400">
-              Currículum
-            </span>
-          </h1>
-          <p class="mt-2 text-xl text-gray-400">Mi trayectoria profesional y académica.</p>
-        </div>
-        <a 
-          href="/Ricardo-Ruiz-Moreno-CV.pdf" 
-          download
-          class="mt-6 md:mt-0 bg-green-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-green-600 transition-colors flex items-center space-x-2 shrink-0"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span>Descargar CV</span>
-        </a>
-      </div>
+    <div class="max-w-5xl mx-auto">
 
-      <section class="mb-12 animate-on-scroll">
-        <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Experiencia Profesional</h2>
-        <div class="space-y-8">
-          {professionalExperience.map(job => (
-            <div class="p-6 border border-gray-800 rounded-lg">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-xl font-bold text-green-400">{job.role}</h3>
-                  <p class="text-gray-300 font-semibold">{job.company}</p>
+      <h1 class="glitch text-5xl md:text-7xl font-extrabold tracking-tight text-center mb-20" data-text="CV">CV</h1>
+      
+      <section class="mb-20 animate-on-scroll">
+        <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Sobre Mí</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+          <div class="md:col-span-1">
+            <img src={about.imageUrl} alt="Ricardo Ruiz Moreno" class="rounded-lg shadow-2xl w-full">
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-gray-300 leading-relaxed">{about.description}</p>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              {about.details.map(detail => (
+                <div class="flex flex-col">
+                  <span class="font-semibold text-gray-400">{detail.label}:</span>
+                  {detail.href ? (
+                    <a href={detail.href} class="text-green-400 hover:underline break-all">{detail.value}</a>
+                  ) : (
+                    <span class="text-gray-200">{detail.value}</span>
+                  )}
                 </div>
-                <p class="text-gray-500 text-sm shrink-0 ml-4">{job.period}</p>
-              </div>
-              <p class="mt-4 text-gray-400">{job.description}</p>
+              ))}
             </div>
-          ))}
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+              {about.downloads.map(download => (
+                <a href={download.href} target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-green-400 border border-green-500/50 px-6 py-3 rounded-full font-semibold hover:bg-green-500 hover:text-gray-900 transition-all duration-300 text-center">
+                  {download.text}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="mb-12 animate-on-scroll">
-        <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Educación</h2>
-        <div class="space-y-6">
-           {education.map(edu => (
+      <section class="mb-20 animate-on-scroll">
+        <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Idiomas</h2>
+        <div class="space-y-4">
+          {languages.map(lang => (
             <div>
-              <h3 class="text-xl font-bold text-green-400">{edu.degree}</h3>
-              <p class="text-gray-300">{edu.institution} <span class="text-gray-500">| {edu.period}</span></p>
+              <p class="text-gray-200 font-semibold mb-1">{lang.lang}</p>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-green-500 h-2.5 rounded-full" style={`width: ${lang.level}%`}></div>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section class="animate-on-scroll">
-        <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Habilidades Técnicas y Profesionales</h2>
-        <div class="flex flex-wrap gap-3">
-          {skills.map(skill => (
-            <span class="bg-gray-800 text-green-300 text-sm font-medium px-4 py-2 rounded-full">{skill}</span>
+      <section class="mb-20 animate-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
+          <div>
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Experiencia</h2>
+            <div class="relative border-l-2 border-gray-700 ml-2">
+              {experience.map(job => (
+                <div class="pl-8 mb-10 relative">
+                  <div class="absolute -left-[11px] top-1 w-5 h-5 bg-green-500 rounded-full border-4 border-gray-900"></div>
+                  <p class="text-sm text-gray-400">{job.date}</p>
+                  <h3 class="text-xl font-bold text-green-400 mt-1">{job.title}</h3>
+                  <div class="flex items-center gap-3 mt-1">
+                    {job.imageUrl && <img src={job.imageUrl} alt={job.company} class="w-5 h-5 object-contain" />}
+                    <p class="text-gray-300 font-semibold">{job.company}</p>
+                  </div>
+                  <p class="mt-2 text-gray-400 text-sm leading-relaxed" set:html={job.description} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Educación</h2>
+            <div class="relative border-l-2 border-gray-700 ml-2">
+              {education.map(edu => (
+                <div class="pl-8 mb-10 relative">
+                  <div class="absolute -left-[11px] top-1 w-5 h-5 bg-green-500 rounded-full border-4 border-gray-900"></div>
+                  <p class="text-sm text-gray-400">{edu.date}</p>
+                  <h3 class="text-xl font-bold text-green-400 mt-1">
+                    {edu.link ? <a href={edu.link} target="_blank" rel="noopener noreferrer" class="hover:underline">{edu.degree}</a> : edu.degree}
+                  </h3>
+                  <p class="text-gray-300 font-semibold">{edu.institution}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20 animate-on-scroll">
+         <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Habilidades</h2>
+         {skills.map(skillBlock => (
+           <div class="mb-12">
+             <h3 class="text-xl font-semibold text-gray-200 mb-6">{skillBlock.title}</h3>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+               {skillBlock.items.map(item => (
+                 <div>
+                   <p class="text-gray-200 font-semibold mb-1 text-sm">{item.name}</p>
+                   <div class="w-full bg-gray-700 rounded-full h-2.5">
+                     <div class="bg-green-500 h-2.5 rounded-full" style={`width: ${item.level}%`}></div>
+                   </div>
+                 </div>
+               ))}
+             </div>
+           </div>
+         ))}
+      </section>
+
+       <section class="mb-20 animate-on-scroll">
+        <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-green-400 pl-4">Recomendaciones</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {recommendations.map(rec => (
+            <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700 flex flex-col">
+              <p class="text-gray-300 flex-grow italic">"{rec.text}"</p>
+              <div class="flex items-center mt-6 pt-4 border-t border-gray-700">
+                <img src={rec.imageUrl} alt={rec.name} class="w-12 h-12 rounded-full object-cover mr-4"/>
+                <div>
+                  <p class="font-bold text-white">{rec.name}</p>
+                  <p class="text-sm text-gray-400">{rec.title}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
+      </section>
+
+      <section class="text-center animate-on-scroll">
+        <h2 class="text-3xl font-bold text-white mb-4">Proyectos Recientes</h2>
+        <p class="text-gray-400 mb-8">Puedes ver mis proyectos destacados en la página principal.</p>
+        <a href="/#proyectos" class="border border-green-400 text-green-400 px-8 py-3 rounded-full font-semibold hover:bg-green-400 hover:text-gray-900 transition-all duration-300">
+          Ver Proyectos
+        </a>
       </section>
     </div>
   </div>
 </Layout>
+
+<style>
+/* CSS para el efecto Glitch */
+.glitch {
+  position: relative;
+  color: white;
+  text-shadow:
+    0.05em 0 0 rgba(0, 255, 255, 0.75),
+    -0.025em -0.05em 0 rgba(255, 0, 0, 0.75),
+    0.025em 0.05em 0 rgba(0, 255, 0, 0.75);
+  animation: glitch 500ms infinite;
+}
+
+.glitch:before,
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111827; /* Coincide con el fondo (gray-900) */
+  overflow: hidden;
+}
+
+.glitch:before {
+  left: 3px;
+  text-shadow: -3px 0 #ff2a6d; /* Un color tipo magenta */
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch:after {
+  left: -3px;
+  text-shadow: -3px 0 #05d9e8; /* Un color tipo cyan */
+  animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch { 0% { text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), -0.025em 0.05em 0 rgba(0, 255, 0, 0.75); } 14% { text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), -0.025em 0.05em 0 rgba(0, 255, 0, 0.75); } 15% { text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), 0.025em 0.025em 0 rgba(255, 0, 0, 0.75), -0.05em -0.05em 0 rgba(0, 255, 0, 0.75); } 49% { text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), 0.025em 0.025em 0 rgba(255, 0, 0, 0.75), -0.05em -0.05em 0 rgba(0, 255, 0, 0.75); } 50% { text-shadow: 0.025em 0.05em 0 rgba(0, 255, 255, 0.75), 0.05em 0 0 rgba(255, 0, 0, 0.75), 0 -0.05em 0 rgba(0, 255, 0, 0.75); } 99% { text-shadow: 0.025em 0.05em 0 rgba(0, 255, 255, 0.75), 0.05em 0 0 rgba(255, 0, 0, 0.75), 0 -0.05em 0 rgba(0, 255, 0, 0.75); } 100% { text-shadow: -0.025em 0 0 rgba(0, 255, 255, 0.75), -0.025em -0.05em 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75); } }
+@keyframes glitch-anim-1 { 0% { clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%); } 10% { clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%); } 20% { clip-path: polygon(0 44%, 100% 44%, 100% 54%, 0 54%); } 30% { clip-path: polygon(0 28%, 100% 28%, 100% 44%, 0 44%); } 40% { clip-path: polygon(0 2%, 100% 2%, 100% 12%, 0 12%); } 50% { clip-path: polygon(0 67%, 100% 67%, 100% 68%, 0 68%); } 60% { clip-path: polygon(0 35%, 100% 35%, 100% 49%, 0 49%); } 70% { clip-path: polygon(0 78%, 100% 78%, 100% 84%, 0 84%); } 80% { clip-path: polygon(0 53%, 100% 53%, 100% 55%, 0 55%); } 90% { clip-path: polygon(0 13%, 100% 13%, 100% 16%, 0 16%); } 100% { clip-path: polygon(0 83%, 100% 83%, 100% 92%, 0 92%); } }
+@keyframes glitch-anim-2 { 0% { clip-path: polygon(0 63%, 100% 63%, 100% 73%, 0 73%); } 10% { clip-path: polygon(0 8%, 100% 8%, 100% 18%, 0 18%); } 20% { clip-path: polygon(0 88%, 100% 88%, 100% 93%, 0 93%); } 30% { clip-path: polygon(0 43%, 100% 43%, 100% 47%, 0 47%); } 40% { clip-path: polygon(0 24%, 100% 24%, 100% 34%, 0 34%); } 50% { clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%); } 60% { clip-path: polygon(0 73%, 100% 73%, 100% 86%, 0 86%); } 70% { clip-path: polygon(0 21%, 100% 21%, 100% 38%, 0 38%); } 80% { clip-path: polygon(0 59%, 100% 59%, 100% 66%, 0 66%); } 90% { clip-path: polygon(0 91%, 100% 91%, 100% 93%, 0 93%); } 100% { clip-path: polygon(0 31%, 100% 31%, 100% 41%, 0 41%); } }
+</style>
