@@ -1,0 +1,36 @@
+---
+const navItems = [
+  { href: "/", text: "Home" },
+  { href: "/cv", text: "CV" },
+  { href: "/#proyectos", text: "Proyectos" },
+  { href: "/prensa", text: "Prensa" },
+  { href: "/contacto", text: "Contacto" }, // <-- ENLACE AÑADIDO
+];
+---
+<header class="fixed top-0 left-0 w-full p-4 md:p-6 bg-gray-900/80 backdrop-blur-sm z-50">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/" class="text-xl font-bold text-white hover:text-green-400 transition-colors">
+      Ricardo Ruiz Moreno
+    </a>
+    <nav class="hidden md:flex items-center space-x-6">
+      {navItems.map(item => (
+        <a href={item.href} class="text-gray-300 hover:text-green-400 transition-colors">{item.text}</a>
+      ))}
+      <a 
+        href="https://meetings.hubspot.com/ricardo-ruiz-moreno" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="bg-green-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-green-600 transition-colors"
+      >
+        Agendar Reunión
+      </a>
+    </nav>
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

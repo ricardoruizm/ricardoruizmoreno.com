@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { sanityClient } from '../../lib/sanityClient.js';
+// 1. Corregimos el nombre a toHTML (con mayúsculas)
+import { toHTML } from '@portabletext/to-html';
+
+export async function getStaticPaths() {
+  const query = `*[_type == "pressArticle" && defined(slug.current)][] {
+    "slug": slug.current
+  }`;
+  const articles = await sanityClient.fetch(query);
+
+  return articles.map(article => ({
+    params: { slug: article.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const articleQuery = `*[_type == "pressArticle" && slug.current == $slug][0]{
+  ...,
+  "slug": slug.current
+}`;
+const article = await sanityClient.fetch(articleQuery, { slug });
+
+if (!article) {
+  return Astro.redirect('/404');
+}
+
+// 2. Usamos la función con el nombre correcto: toHTML
+const contentHtml = toHTML(article.content);
+---
+
+<Layout 
+  title={article.title} 
+  description={article.description}
+>
+  <div class="container mx-auto px-6 py-24 pt-40">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-teal-400">
+        {article.title}
+      </h1>
+    </div>
+
+    <div class="max-w-4xl mx-auto prose prose-invert lg:prose-xl prose-p:text-gray-300 prose-headings:text-white prose-a:text-green-400">
+      <div set:html={contentHtml} />
+    </div>
+
+    <div class="text-center mt-20">
+       <a href="/prensa" class="border border-green-400 text-green-400 px-8 py-3 rounded-full font-semibold hover:bg-green-400 hover:text-gray-900 transition-all duration-300">
+        ← Volver a Prensa
+      </a>
+    </div>
+  </div>
+</Layout>

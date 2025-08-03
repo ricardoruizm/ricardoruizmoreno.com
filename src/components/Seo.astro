@@ -1,0 +1,52 @@
+---
+// Ya no manejamos 'title' aquí
+interface Props {
+  description: string;
+  image?: string;
+  canonicalURL?: URL | string;
+}
+
+const {
+  description = 'Portafolio profesional de Ricardo Ruiz Moreno, experto en Diseño y Gestión de Proyectos Tecnológicos, Marketing y Ecommerce.',
+  image = new URL('/default-social-image.png', Astro.site),
+  canonicalURL = new URL(Astro.url.pathname, Astro.site),
+} = Astro.props;
+
+// El título formateado se crea ahora en Layout.astro
+const pageTitle = Astro.props.title || 'Ricardo Ruiz Moreno - Diseño y Gestión de Proyectos Tecnológicos';
+---
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+<meta name="generator" content={Astro.generator} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Ricardo Ruiz Moreno",
+  "url": Astro.site,
+  "author": {
+    "@type": "Person",
+    "name": "Ricardo Ruiz Moreno",
+    "url": "https://www.linkedin.com/in/ricardoruizmoreno"
+  }
+}
+</script>

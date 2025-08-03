@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacto - Ricardo Ruiz Moreno">
+  <div class="container mx-auto px-6 py-24 pt-40 animate-on-scroll">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-teal-400">
+          Hablemos
+        </span>
+      </h1>
+      <p class="mt-4 text-lg max-w-2xl mx-auto text-gray-300">
+        ¿Tienes un proyecto en mente o una oportunidad que te gustaría discutir? Me encantaría saber de ti. Completa el formulario o si lo prefieres, envíame un correo directamente.
+      </p>
+      <div class="mt-8">
+        <a href="mailto:me@ricardoruizmoreno.com" class="text-green-400 font-semibold hover:underline">
+          me@ricardoruizmoreno.com
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 max-w-2xl mx-auto">
+      {/* --- CÓDIGO DE HUBSPOT INSERTADO AQUÍ --- */}
+      <script src="https://js.hsforms.net/forms/embed/50331189.js" defer></script>
+      <div class="hs-form-frame" data-region="na1" data-form-id="37fbb03f-1159-4402-baba-0d33a70c2d21" data-portal-id="50331189"></div>
+    </div>
+  </div>
+</Layout>
