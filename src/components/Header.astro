@@ -7,17 +7,13 @@ const navItems = [
   { href: "/contacto/", text: "Contacto" },
 ];
 
-const logoUrl = "https://ricardoruizmoreno.com/wp-content/uploads/2022/08/logo-blanco.png";
 const currentPath = Astro.url.pathname;
 ---
 <header class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-800">
   <div class="container mx-auto flex justify-between items-center p-4 md:p-6">
-    <a href="/" class="hover:opacity-80 transition-opacity">
-      {currentPath.startsWith('/proyectos') ? (
-        <img src={logoUrl} alt="Logo Ricardo Ruiz Moreno" class="h-8 w-auto" />
-      ) : (
-        <span class="text-xl font-bold text-white">Ricardo Ruiz Moreno</span>
-      )}
+    {/* Se ha eliminado la lógica condicional del logo para mostrar siempre el nombre */}
+    <a href="/" class="text-xl font-bold text-white hover:text-green-400 transition-colors">
+      Ricardo Ruiz Moreno
     </a>
 
     <nav class="hidden md:flex items-center space-x-6">
@@ -73,21 +69,33 @@ const currentPath = Astro.url.pathname;
     const mobileMenu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-icon-open');
     const closeIcon = document.getElementById('menu-icon-close');
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        openIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
-      });
+    
+    let isMenuInitialized = false;
+
+    // Función para manejar el clic
+    const handleMenuClick = () => {
+      mobileMenu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    };
+
+    // Función para cerrar el menú
+    const closeMenu = () => {
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    };
+    
+    if (mobileMenuButton && mobileMenu && !isMenuInitialized) {
+      mobileMenuButton.addEventListener('click', handleMenuClick);
+      isMenuInitialized = true;
     }
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          openIcon.classList.remove('hidden');
-          closeIcon.classList.add('hidden');
-        }
-      });
+    
+    // El evento 'astro:page-load' es para cerrar el menú al navegar
+    document.addEventListener('astro:page-load', () => {
+      closeMenu();
     });
   });
 </script>
