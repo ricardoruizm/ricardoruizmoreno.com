@@ -1,33 +1,32 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { sanityClient } from '../../lib/sanityClient.js';
-// 1. Corregimos el nombre a toHTML (con mayúsculas)
 import { toHTML } from '@portabletext/to-html';
 
 export async function getStaticPaths() {
-  const query = `*[_type == "pressArticle" && defined(slug.current)][] {
-    "slug": slug.current
-  }`;
+  const query = `*[_type == "pressArticle" && defined(slug.current)][] { "slug": slug.current }`;
   const articles = await sanityClient.fetch(query);
-
-  return articles.map(article => ({
-    params: { slug: article.slug },
-  }));
+  return articles.map(article => ({ params: { slug: article.slug } }));
 }
 
 const { slug } = Astro.params;
-const articleQuery = `*[_type == "pressArticle" && slug.current == $slug][0]{
-  ...,
-  "slug": slug.current
-}`;
+const articleQuery = `*[_type == "pressArticle" && slug.current == $slug][0]{ ..., "slug": slug.current }`;
 const article = await sanityClient.fetch(articleQuery, { slug });
 
-if (!article) {
-  return Astro.redirect('/404');
-}
+if (!article) { return Astro.redirect('/404'); }
 
-// 2. Usamos la función con el nombre correcto: toHTML
-const contentHtml = toHTML(article.content);
+// Definimos cómo se debe renderizar nuestro bloque personalizado "embedHtml"
+const customComponents = {
+  types: {
+    embedHtml: ({ value }) => {
+      if (!value.htmlCode) return null;
+      return `<div class="embed-container">${value.htmlCode}</div>`;
+    },
+  },
+};
+
+// 👇 LÍNEA CORREGIDA: Le pasamos los componentes personalizados a la función 👇
+const contentHtml = toHTML(article.content, { components: customComponents });
 ---
 
 <Layout 
@@ -52,3 +51,12 @@ const contentHtml = toHTML(article.content);
     </div>
   </div>
 </Layout>
+
+<style is:global>
+  /* Estilos para centrar y dar espacio a los iframes */
+  .embed-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+</style>
